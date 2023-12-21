@@ -8,12 +8,11 @@ export const getSelf = async () => {
   }
 
   const user = await db.user.findUnique({
-    where: { externaUserId: self.id },
+    where: { externalUserId: self.id },
   });
 
   if (!user) {
     throw new Error("Not found");
-
-    return user;
   }
+  return user;
 };
