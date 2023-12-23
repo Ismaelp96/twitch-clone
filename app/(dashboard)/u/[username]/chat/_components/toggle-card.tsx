@@ -5,6 +5,7 @@ import { startTransition, useTransition } from 'react';
 
 import { Switch } from '@/components/ui/switch';
 import { updateStream } from '@/actions/stream';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type FieldTypes = 'isChatEnabled' | 'isChatDelayed' | 'isChatFollowersOnly';
 interface ToggleCardProps {
@@ -38,4 +39,8 @@ export const ToggleCard = ({ field, label, value }: ToggleCardProps) => {
       </div>
     </div>
   );
+};
+
+export const ToggleCardSkeleton = () => {
+  return <Skeleton className='rounded-xl p-10 w-full' />;
 };
