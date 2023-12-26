@@ -1,5 +1,6 @@
 import { db } from "./db";
 import { getSelf } from "./auth-service";
+import { tree } from "next/dist/build/templates/app-page";
 
 export const getRecommended = async () => {
   let userId;
@@ -40,12 +41,18 @@ export const getRecommended = async () => {
           },
         ],
       },
+      include: {
+        stream: true,
+      },
       orderBy: {
         createdAt: "desc",
       },
     });
   } else {
     users = await db.user.findMany({
+      include: {
+        stream: true,
+      },
       orderBy: {
         createdAt: "desc",
       },
